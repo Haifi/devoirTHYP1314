@@ -1,0 +1,54 @@
+
+<script>
+
+    function supalb(lib) {
+         alert('rt');
+	
+$.ajax({
+  url      : document.location.protocol + '//test/album/answer/'+lib,
+  dataType : 'json',
+  success  : function (data) {                
+            alert("popo");
+
+  }
+                
+          
+});
+
+}
+//Call AJAX:
+//$(document).ready(supalb());
+
+
+
+</script>
+
+
+
+<?php
+
+
+$title = 'mes etudiants';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+
+
+<table class="table">
+<tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($Ecrires as $Ecrire) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($Ecrire->nom);?></td>z
+    <td><?php echo $this->escapeHtml($Ecrire->prenom);?></td>    <td>
+        <a href="<?php echo $this->url('Ecrire',
+            array('action'=>'add', 'id' => $Ecrire->id));?>">Ajouter note</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+
